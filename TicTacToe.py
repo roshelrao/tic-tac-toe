@@ -1,43 +1,45 @@
 from tkinter import *
+from functools import partial
 
 window = Tk()
 
-def textchange1():
-    button1['text']= 'X'
+def textchange1(num):
+    if num==1:
+        button1['text']= 'X'
+    
+    elif num==2:
+        button2['text']= 'X'
 
-def textchange2():
-    button2['text']= 'O'
+    elif num==3:
+        button3['text']= 'X'
 
-def textchange3():
-    button3['text']= 'O'
+    elif num==4:
+        button4['text']= 'X'
 
-def textchange4():
-    button4['text']= 'O'
+    elif num==5:
+        button5['text']= 'X'
 
-def textchange5():
-    button5['text']= 'O'
+    elif num==6:
+        button6['text']= 'X'
 
-def textchange6():
-    button6['text']= 'O'
+    elif num==7:
+        button7['text']= 'O'
 
-def textchange7():
-    button7['text']= 'O'
+    elif num==8:
+        button8['text']= 'X'
 
-def textchange8():
-    button8['text']= 'O'
+    elif num==9:
+        button9['text']= 'X'
 
-def textchange9():
-    button9['text']= 'O'
-
-button1 =  Button(window,bg="white",width=10,command=textchange1)
-button2 =  Button(window,bg="white",width=10,command=textchange2)
-button3 =  Button(window,bg="white",width=10,command=textchange3)
-button4 =  Button(window,bg="white",width=10,command=textchange4)
-button5 =  Button(window,bg="white",width=10,command=textchange5)
-button6 =  Button(window,bg="white",width=10,command=textchange6)
-button7 =  Button(window,bg="white",width=10,command=textchange7)
-button8 =  Button(window,bg="white",width=10,command=textchange8)
-button9 =  Button(window,bg="white",width=10,command=textchange9)
+button1 =  Button(window,bg="white",width=10,command=partial(textchange1,1))
+button2 =  Button(window,bg="white",width=10,command=partial(textchange1,2))
+button3 =  Button(window,bg="white",width=10,command=partial(textchange1,3))
+button4 =  Button(window,bg="white",width=10,command=partial(textchange1,4))
+button5 =  Button(window,bg="white",width=10,command=partial(textchange1,5))
+button6 =  Button(window,bg="white",width=10,command=partial(textchange1,6))
+button7 =  Button(window,bg="white",width=10,command=partial(textchange1,7))
+button8 =  Button(window,bg="white",width=10,command=partial(textchange1,8))
+button9 =  Button(window,bg="white",width=10,command=partial(textchange1,9))
 
 button1.grid(row=0,column=0, sticky="w", padx=3,pady=2)
 button2.grid(row=0,column=1, sticky="w", padx=3,pady=2)
