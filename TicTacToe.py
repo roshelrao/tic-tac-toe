@@ -5,17 +5,23 @@ window = Tk()
 
 clicked=True
 count=0
+game_over=False
 
 board = ["","","","","","","","",""]
 
 def textchange1(btn,index):
-    global clicked, count
+    global clicked, count, game_over
+    if game_over==True:
+        print("Game over")
+        return
+
     if btn['text']=="" and clicked==True:
         btn['text']="X"
         board[index]="X"
         clicked=False
         count = count+1
         if checkWinner():
+            game_over=True
             print("X won")
 
     elif btn['text']=="" and clicked==False:
@@ -24,12 +30,28 @@ def textchange1(btn,index):
         clicked=True
         count=count+1
         if checkWinner():
+            game_over=True
             print("O won")
 
 def checkWinner():
     if board[0]==board[1]==board[2]!="":
         return True
-
+    if board[3]==board[4]==board[5]!="":
+        return True
+    if board[6]==board[7]==board[8]!="":
+        return True
+    if board[0]==board[3]==board[6]!="":
+        return True
+    if board[1]==board[4]==board[7]!="":
+        return True
+    if board[2]==board[5]==board[8]!="":
+        return True
+    if board[0]==board[4]==board[8]!="":
+        return True
+    if board[2]==board[4]==board[6]!="":
+        return True
+    
+    return False
 button1 =  Button(window,bg="white",width=10,text="",command=lambda:textchange1(button1,0))
 button2 =  Button(window,bg="white",width=10,text="",command=lambda:textchange1(button2,1))
 button3 =  Button(window,bg="white",width=10,text="",command=lambda:textchange1(button3,2))
