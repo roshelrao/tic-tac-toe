@@ -3,43 +3,30 @@ from functools import partial
 
 window = Tk()
 
+clicked=True
+count=0
+
 def textchange1(num):
-    if num==1:
-        button1['text']= 'X'
+    global clicked, count
+    if num['text']=="" and clicked==True:
+        num['text']="X"
+        clicked=False
+        count = count+1
+
+    elif num['text']=="" and clicked==False:
+        num['text']="O"
+        clicked=True
+        count=count+1
     
-    elif num==2:
-        button2['text']= 'X'
-
-    elif num==3:
-        button3['text']= 'X'
-
-    elif num==4:
-        button4['text']= 'X'
-
-    elif num==5:
-        button5['text']= 'X'
-
-    elif num==6:
-        button6['text']= 'X'
-
-    elif num==7:
-        button7['text']= 'O'
-
-    elif num==8:
-        button8['text']= 'X'
-
-    elif num==9:
-        button9['text']= 'X'
-
-button1 =  Button(window,bg="white",width=10,command=partial(textchange1,1))
-button2 =  Button(window,bg="white",width=10,command=partial(textchange1,2))
-button3 =  Button(window,bg="white",width=10,command=partial(textchange1,3))
-button4 =  Button(window,bg="white",width=10,command=partial(textchange1,4))
-button5 =  Button(window,bg="white",width=10,command=partial(textchange1,5))
-button6 =  Button(window,bg="white",width=10,command=partial(textchange1,6))
-button7 =  Button(window,bg="white",width=10,command=partial(textchange1,7))
-button8 =  Button(window,bg="white",width=10,command=partial(textchange1,8))
-button9 =  Button(window,bg="white",width=10,command=partial(textchange1,9))
+button1 =  Button(window,bg="white",width=10,text="",command=lambda:textchange1(button1))
+button2 =  Button(window,bg="white",width=10,text="",command=lambda:textchange1(button2))
+button3 =  Button(window,bg="white",width=10,text="",command=lambda:textchange1(button3))
+button4 =  Button(window,bg="white",width=10,text="",command=lambda:textchange1(button4))
+button5 =  Button(window,bg="white",width=10,text="",command=lambda:textchange1(button5))
+button6 =  Button(window,bg="white",width=10,text="",command=lambda:textchange1(button6))
+button7 =  Button(window,bg="white",width=10,text="",command=lambda:textchange1(button7))
+button8 =  Button(window,bg="white",width=10,text="",command=lambda:textchange1(button8))
+button9 =  Button(window,bg="white",width=10,text="",command=lambda:textchange1(button9))
 
 button1.grid(row=0,column=0, sticky="w", padx=3,pady=2)
 button2.grid(row=0,column=1, sticky="w", padx=3,pady=2)
