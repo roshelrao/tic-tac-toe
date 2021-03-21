@@ -15,14 +15,21 @@ def textchange1(btn,index):
         board[index]="X"
         clicked=False
         count = count+1
+        if checkWinner():
+            print("X won")
 
     elif btn['text']=="" and clicked==False:
         btn['text']="O"
         board[index]="O"
         clicked=True
         count=count+1
-    print(board)
-    
+        if checkWinner():
+            print("O won")
+
+def checkWinner():
+    if board[0]==board[1]==board[2]!="":
+        return True
+
 button1 =  Button(window,bg="white",width=10,text="",command=lambda:textchange1(button1,0))
 button2 =  Button(window,bg="white",width=10,text="",command=lambda:textchange1(button2,1))
 button3 =  Button(window,bg="white",width=10,text="",command=lambda:textchange1(button3,2))
