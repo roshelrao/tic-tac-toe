@@ -1,5 +1,5 @@
 from tkinter import *
-from functools import partial
+from tkinter import messagebox
 
 window = Tk()
 
@@ -10,9 +10,33 @@ game_over=False
 board = ["","","","","","","","",""]
 
 def textchange1(btn,index):
-    global clicked, count, game_over
-    if game_over==True:
+    global clicked, count, game_over,winner
+    if game_over==True and winner ==1:
+        messagebox.showinfo(title="Game over",message="winner is X")
         print("Game over")
+        button1.config(text="")
+        button2.config(text="")
+        button3.config(text="")
+        button4.config(text="")
+        button5.config(text="")
+        button6.config(text="")
+        button7.config(text="")
+        button8.config(text="")
+        button9.config(text="")
+        return
+    
+    if game_over==True and winner ==2:
+        messagebox.showinfo(title="Game over",message="Winner is O")
+        print("Game over")
+        button1.config(text="")
+        button2.config(text="")
+        button3.config(text="")
+        button4.config(text="")
+        button5.config(text="")
+        button6.config(text="")
+        button7.config(text="")
+        button8.config(text="")
+        button9.config(text="")
         return
 
     if btn['text']=="" and clicked==True:
@@ -22,7 +46,7 @@ def textchange1(btn,index):
         count = count+1
         if checkWinner():
             game_over=True
-            print("X won")
+            winner = 1
 
     elif btn['text']=="" and clicked==False:
         btn['text']="O"
@@ -31,7 +55,7 @@ def textchange1(btn,index):
         count=count+1
         if checkWinner():
             game_over=True
-            print("O won")
+            winner = 2
 
 def checkWinner():
     if board[0]==board[1]==board[2]!="":
