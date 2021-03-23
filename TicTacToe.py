@@ -14,29 +14,12 @@ def textchange1(btn,index):
     if game_over==True and winner ==1:
         messagebox.showinfo(title="Game over",message="winner is X")
         print("Game over")
-        button1.config(text="")
-        button2.config(text="")
-        button3.config(text="")
-        button4.config(text="")
-        button5.config(text="")
-        button6.config(text="")
-        button7.config(text="")
-        button8.config(text="")
-        button9.config(text="")
+        reset_game()
         return
     
     if game_over==True and winner ==2:
         messagebox.showinfo(title="Game over",message="Winner is O")
         print("Game over")
-        button1.config(text="")
-        button2.config(text="")
-        button3.config(text="")
-        button4.config(text="")
-        button5.config(text="")
-        button6.config(text="")
-        button7.config(text="")
-        button8.config(text="")
-        button9.config(text="")
         return
 
     if btn['text']=="" and clicked==True:
@@ -76,6 +59,22 @@ def checkWinner():
         return True
     
     return False
+
+def reset_game():
+        global board, game_over
+        board = ["","","","","","","","",""]
+        button1.config(text="")
+        button2.config(text="")
+        button3.config(text="")
+        button4.config(text="")
+        button5.config(text="")
+        button6.config(text="")
+        button7.config(text="")
+        button8.config(text="")
+        button9.config(text="")
+        game_over=False
+        return
+
 button1 =  Button(window,bg="white",width=10,text="",command=lambda:textchange1(button1,0))
 button2 =  Button(window,bg="white",width=10,text="",command=lambda:textchange1(button2,1))
 button3 =  Button(window,bg="white",width=10,text="",command=lambda:textchange1(button3,2))
